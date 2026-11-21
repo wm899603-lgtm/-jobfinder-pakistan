@@ -191,6 +191,147 @@ nav a:hover {
   }
 }
  </style>
+ 
+<style id="jobfinder-city-cv-premium">
+/* PREMIUM CITY AND JOB FILTERS */
+.filters {
+  background: linear-gradient(135deg, #f0efff, #f8faff) !important;
+  border: 1px solid #dedcff !important;
+  border-radius: 22px !important;
+  padding: 25px !important;
+  box-shadow: 0 12px 30px #4338ca12;
+  gap: 15px !important;
+}
+
+.filters input,
+.filters select {
+  min-height: 50px;
+  border: 1px solid #d9d9f5 !important;
+  border-radius: 12px !important;
+  background: white !important;
+  color: #252653;
+  font-weight: 600;
+  padding: 12px 14px !important;
+  box-shadow: 0 3px 10px #3730a308;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #7165ed !important;
+  box-shadow: 0 0 0 4px #7165ed20;
+}
+
+/* PREMIUM CV BUILDER */
+#cv {
+  background: linear-gradient(145deg, #f0efff, #f8faff) !important;
+}
+
+#cv .heading {
+  margin-bottom: 30px;
+}
+
+.cv-layout {
+  gap: 25px !important;
+  align-items: stretch !important;
+}
+
+.cv-form,
+.preview {
+  background: white !important;
+  border: 1px solid #e3e2fa !important;
+  border-radius: 22px !important;
+  padding: 28px !important;
+  box-shadow: 0 14px 35px #29266b12;
+}
+
+.cv-form h3 {
+  color: #4338ca;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.cv-form label {
+  color: #33345d !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  margin: 16px 0 7px !important;
+}
+
+.cv-form input,
+.cv-form textarea {
+  width: 100%;
+  border: 1px solid #dedff0 !important;
+  border-radius: 12px !important;
+  padding: 13px !important;
+  background: #fafaff !important;
+  transition: .2s ease;
+}
+
+.cv-form input:focus,
+.cv-form textarea:focus {
+  background: white !important;
+  border-color: #7165ed !important;
+  box-shadow: 0 0 0 4px #7165ed18;
+  outline: none;
+}
+
+.cv-form textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.preview {
+  border-top: 5px solid #635bdb !important;
+  min-height: 500px;
+  background: linear-gradient(180deg, #fff, #fbfaff) !important;
+}
+
+.preview h2 {
+  color: #3730a3 !important;
+  font-size: 28px !important;
+  font-weight: 900;
+}
+
+.preview h3 {
+  color: #5145cd !important;
+  font-size: 14px !important;
+  font-weight: 800;
+  margin-top: 24px !important;
+  border-bottom: 2px solid #e8e6ff !important;
+}
+
+.preview p {
+  color: #50536b !important;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.cv-form .actions {
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cv-form .actions button {
+  flex: 1;
+  min-width: 130px;
+}
+
+@media(max-width:750px) {
+  .cv-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cv-form,
+  .preview {
+    padding: 20px !important;
+  }
+
+  .filters {
+    padding: 17px !important;
+  }
+}
+</style>
+ 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
