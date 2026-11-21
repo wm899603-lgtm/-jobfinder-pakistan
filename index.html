@@ -1,6 +1,103 @@
 
 <!DOCTYPE html>
 <html lang="en">
+ <style id="jobfinder-premium-theme">
+:root {
+  --primary: #5b5cf0;
+  --dark: #10152b;
+  --light: #f5f7ff;
+  --text: #20243a;
+  --muted: #6b7280;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--light);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+header {
+  background: linear-gradient(120deg, #111936, #3730a3, #6366f1) !important;
+  color: white;
+  box-shadow: 0 8px 30px #20245a22;
+}
+
+header a { color: white !important; }
+
+section {
+  border-radius: var(--radius);
+}
+
+button, .btn, input[type="submit"] {
+  background: linear-gradient(120deg, #4f46e5, #7c3aed) !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+button:hover, .btn:hover, input[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px #5145cd44;
+}
+
+input, select, textarea {
+  border: 1px solid #dce1f0 !important;
+  border-radius: 11px !important;
+  padding: 12px !important;
+  background: white;
+  width: 100%;
+  max-width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #818cf8;
+  border-color: #6366f1 !important;
+}
+
+.card, .job-card, .category-card, .stat-card {
+  background: white;
+  border: 1px solid #e9eafa;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 25px #20245a0b;
+  transition: .25s ease;
+}
+
+.card:hover, .job-card:hover, .category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 32px #20245a18;
+}
+
+h1, h2, h3 {
+  letter-spacing: -.5px;
+}
+
+h1 {
+  background: linear-gradient(90deg, #4338ca, #9333ea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+footer {
+  background: #10152b !important;
+  color: white !important;
+  padding: 30px 15px;
+}
+
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  section { padding: 18px !important; }
+  h1 { font-size: 30px; }
+  button, .btn { width: 100%; }
+}
+ </style>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
