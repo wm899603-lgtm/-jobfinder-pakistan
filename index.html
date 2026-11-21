@@ -1,222 +1,398 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Find the latest jobs in Pakistan. Build your CV and prepare for interviews with JobFinder Pakistan.">
-<title>JobFinder Pakistan | Find Your Future</title>
+<meta name="description" content="Discover official job portals across Pakistan and build a professional CV for free.">
+<title>JobFinder Pakistan | Careers Start Here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+:root{
+ --navy:#101d36;--navy2:#172b4d;--green:#10b981;
+ --green2:#059669;--bg:#f5f7fb;--muted:#64748b;
+ --white:#fff;--line:#e7edf4;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;color:#172033;background:#f6f8fc;line-height:1.6}
-header{background:#102b50;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.logo{font-size:23px;font-weight:bold}
-.logo span{color:#42d6a4}
-nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
-.hero{text-align:center;padding:75px 18px;background:linear-gradient(120deg,#102b50,#176b72);color:white}
-.hero h1{font-size:clamp(30px,5vw,48px);margin-bottom:12px}
-.hero p{margin-bottom:25px;color:#e0f4f0}
-.search{background:white;max-width:650px;margin:auto;padding:8px;border-radius:12px;display:flex;gap:8px}
-.search input{flex:1;min-width:0;padding:14px;border:0;outline:none;font-size:15px}
-button{background:#0b9c78;color:white;border:0;padding:13px 22px;border-radius:8px;cursor:pointer;font-weight:bold}
-button:hover{background:#08775e}
-section{padding:48px 6%}
-h2{font-size:27px;margin-bottom:20px}
-.categories,.jobs,.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
-.card{background:white;padding:21px;border-radius:12px;border:1px solid #e6eaf0;box-shadow:0 3px 12px #102b5008}
-.card h3{margin-bottom:8px}
-.card p{color:#64748b;font-size:14px}
-.job{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-.job button{font-size:12px;padding:10px 14px}
-.tag{color:#08775e;background:#e3f7ef;padding:4px 9px;border-radius:20px;font-size:12px}
-.cta{text-align:center;background:#e9f5f2;border-radius:15px;padding:35px}
-footer{background:#102b50;color:white;padding:35px 6%;text-align:center}
-footer a{color:#42d6a4;text-decoration:none}
-.small{font-size:13px;color:#cbd5e1;margin-top:10px}
-@media(max-width:600px){header{justify-content:center}nav{text-align:center}.hero{padding:55px 15px}.search{flex-direction:column}section{padding:35px 5%}}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--navy);line-height:1.65}
+a{text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{
+ position:sticky;top:0;z-index:50;background:rgba(16,29,54,.96);
+ backdrop-filter:blur(14px);color:white;padding:15px 6%;
+ display:flex;justify-content:space-between;align-items:center;gap:20px;
+ box-shadow:0 5px 25px #101d3618;
+}
+.logo{font-size:22px;font-weight:900;letter-spacing:-1px;color:white}
+.logo span{color:#34d399}
+nav{display:flex;gap:24px;flex-wrap:wrap}
+nav a{color:#dbe5f3;font-size:13px;font-weight:600;transition:.2s}
+nav a:hover{color:#34d399}
+.hero{
+ position:relative;overflow:hidden;text-align:center;color:white;
+ padding:95px 18px 85px;
+ background:radial-gradient(circle at 15% 20%,#176b65 0,transparent 32%),
+ linear-gradient(125deg,#101d36 5%,#18395b 58%,#087e6b 120%);
+}
+.hero:after{
+ content:"";position:absolute;width:350px;height:350px;border:1px solid #ffffff20;
+ border-radius:50%;right:-130px;top:-160px;
+ box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff05;
+}
+.hero-content{position:relative;z-index:2;max-width:850px;margin:auto}
+.eyebrow{
+ display:inline-block;padding:7px 14px;border:1px solid #ffffff35;
+ background:#ffffff12;border-radius:30px;color:#a7f3d0;
+ font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:22px;
+}
+.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.12;letter-spacing:-2.5px;font-weight:900}
+.hero h1 span{color:#5ee6b5}
+.hero p{color:#d6e4ef;max-width:620px;margin:19px auto 28px;font-size:16px}
+.search-box{
+ max-width:720px;margin:auto;background:white;padding:8px;border-radius:15px;
+ display:flex;gap:8px;box-shadow:0 18px 50px #06152c55;
+}
+.search-box input{flex:1;min-width:0;border:0;outline:0;padding:13px;color:var(--navy)}
+.btn{
+ display:inline-flex;justify-content:center;align-items:center;gap:8px;
+ border:0;border-radius:9px;padding:12px 19px;background:var(--green);
+ color:white;font-size:13px;font-weight:800;transition:.2s;
+}
+.btn:hover{background:var(--green2);transform:translateY(-2px)}
+.hero-note{font-size:12px!important;color:#b8d5d8!important;margin-top:15px!important}
+.stats{
+ max-width:950px;margin:-1px auto 0;padding:25px 18px;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
+ background:white;border-radius:0 0 17px 17px;box-shadow:0 8px 35px #102b500b;
+}
+.stat{text-align:center}
+.stat strong{display:block;font-size:22px;color:var(--green2);font-weight:900}
+.stat span{font-size:12px;color:var(--muted)}
+section{padding:65px 6%}
+.section-head{max-width:720px;margin-bottom:28px}
+.kicker{color:var(--green2);font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
+h2{font-size:clamp(25px,4vw,34px);letter-spacing:-1px;line-height:1.25;margin:7px 0 10px}
+.section-head p{color:var(--muted);font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.category{
+ background:white;border:1px solid var(--line);padding:22px;border-radius:14px;
+ transition:.25s;box-shadow:0 4px 16px #102b5007;
+}
+.category:hover{transform:translateY(-5px);border-color:#9be7cb;box-shadow:0 15px 30px #102b5010}
+.category .emoji{font-size:25px}
+.category h3{font-size:15px;margin:10px 0 4px}
+.category p{font-size:12px;color:var(--muted)}
+.jobs-section{background:#fff}
+.filters{
+ display:grid;grid-template-columns:2fr 1fr 1fr auto;
+ gap:10px;margin:22px 0;
+}
+.filters input,.filters select{
+ min-width:0;width:100%;padding:13px;border:1px solid var(--line);
+ border-radius:9px;background:#f9fbfd;outline:0;color:var(--navy);
+}
+.filters input:focus,.filters select:focus{border-color:var(--green)}
+.jobs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.job-card{
+ background:white;border:1px solid var(--line);border-radius:14px;
+ padding:22px;display:flex;justify-content:space-between;align-items:center;
+ gap:15px;transition:.22s;
+}
+.job-card:hover{border-color:#8ddfc0;transform:translateY(-3px);box-shadow:0 12px 28px #102b500d}
+.job-info{min-width:0}
+.tag{
+ display:inline-block;background:#e7f8f1;color:#087c59;
+ padding:5px 9px;border-radius:30px;font-size:10px;font-weight:800;
+}
+.job-card h3{font-size:16px;margin:9px 0 4px}
+.job-card p{font-size:12px;color:var(--muted)}
+.apply{
+ display:inline-block;white-space:nowrap;background:var(--navy);
+ color:white;padding:10px 13px;border-radius:8px;font-size:11px;font-weight:800;
+ transition:.2s;
+}
+.apply:hover{background:var(--green2)}
+.notice{
+ margin-top:22px;padding:15px 17px;border-radius:10px;
+ background:#f0f8f5;color:#42685d;font-size:12px;
+}
+.empty{display:none;padding:25px;text-align:center;color:var(--muted)}
+.cv-section{background:#f5f7fb}
+.cv-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.cv-form,.cv-preview{
+ background:white;padding:23px;border:1px solid var(--line);border-radius:15px;
+ box-shadow:0 5px 20px #102b5008;
+}
+.cv-form h3{font-size:17px;margin-bottom:12px}
+.cv-form label{display:block;font-size:12px;font-weight:700;margin:12px 0 5px}
+.cv-form input,.cv-form textarea{
+ width:100%;padding:11px;border:1px solid #dce4ed;border-radius:8px;
+ outline:0;font-size:13px;background:#fbfcfe;
+}
+.cv-form input:focus,.cv-form textarea:focus{border-color:var(--green)}
+.cv-form textarea{min-height:75px;resize:vertical}
+.cv-preview{min-height:500px}
+.cv-preview h2{font-size:25px;color:var(--navy);margin:0 0 4px}
+.cv-preview h3{font-size:13px;color:var(--green2);border-bottom:1px solid var(--line);padding-bottom:5px;margin:21px 0 8px}
+.cv-preview p{font-size:12px;color:#455468;white-space:pre-wrap;overflow-wrap:anywhere}
+.cv-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}
+.secondary{background:#e9eef5;color:var(--navy)}
+.secondary:hover{background:#dce5ef}
+.about-card{
+ max-width:900px;background:linear-gradient(120deg,#122541,#1a4760);
+ color:white;padding:32px;border-radius:17px;
+}
+.about-card p{color:#d2e2eb;font-size:14px}
+.about-card strong{color:#5ee6b5}
+footer{background:#101d36;color:white;text-align:center;padding:38px 18px}
+footer .logo{margin-bottom:10px}
+footer p{color:#b7c7d8;font-size:12px}
+footer a{color:#5ee6b5}
+@media(max-width:800px){
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .filters{grid-template-columns:1fr 1fr}
+ .filters input,.filters button{grid-column:1/-1}
+ .cv-layout{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ header{justify-content:center;padding:14px 12px}
+ nav{justify-content:center;gap:13px}
+ nav a{font-size:11px}
+ .hero{padding:70px 16px}
+ .hero h1{letter-spacing:-1.5px}
+ .search-box{flex-direction:column}
+ .stats{margin:0 12px;border-radius:0 0 14px 14px}
+ .stat strong{font-size:18px}
+ .stat span{font-size:10px}
+ section{padding:45px 5%}
+ .categories,.jobs{grid-template-columns:1fr}
+ .job-card{align-items:flex-start;flex-direction:column}
+ .apply{width:100%;text-align:center}
+ .filters{grid-template-columns:1fr}
+ .filters input,.filters button{grid-column:auto}
+}
+@media print{
+ @page{margin:16mm}
+ body *{visibility:hidden!important}
+ #cvPreview,#cvPreview *{visibility:visible!important}
+ #cvPreview{position:absolute;left:0;top:0;width:100%;border:0;box-shadow:none;padding:0}
+}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">JobFinder <span>Pakistan</span></div>
-<nav>
-<a href="#home">Home</a>
-<a href="#jobs">Jobs</a>
-<a href="#categories">Categories</a>
-<a href="#cv">CV Builder</a>
-<a href="#about">About</a>
-</nav>
+ <a class="logo" href="#home">JobFinder <span>Pakistan.</span></a>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#categories">Categories</a>
+  <a href="#jobs">Job Portals</a>
+  <a href="#cv">CV Builder</a>
+  <a href="#about">About</a>
+ </nav>
 </header>
 
+<main>
 <div class="hero" id="home">
-<h1>Find Your Future. Build Your Career.</h1>
-<p>Discover career opportunities across Pakistan.</p>
-<div class="search">
-<input id="searchInput" type="search" placeholder="Search job title or company...">
-<button onclick="searchJobs()">Search Jobs</button>
+ <div class="hero-content">
+  <div class="eyebrow">YOUR CAREER STARTS HERE</div>
+  <h1>Discover Opportunities.<br><span>Build Your Future.</span></h1>
+  <p>Explore trusted job platforms across Pakistan and create a professional CV to take your next career step.</p>
+  <div class="search-box">
+   <input id="searchInput" type="search" placeholder="Search jobs, departments or portals..." aria-label="Search job portals">
+   <button class="btn" onclick="searchJobs()">Explore Jobs →</button>
+  </div>
+  <p class="hero-note">Free career resources · Official job sources · Professional CV builder</p>
+ </div>
 </div>
+
+<div class="stats">
+ <div class="stat"><strong>Nationwide</strong><span>Job sources across Pakistan</span></div>
+ <div class="stat"><strong>Free</strong><span>Online CV builder</span></div>
+ <div class="stat"><strong>Direct</strong><span>Employer portal links</span></div>
 </div>
 
 <section id="categories">
-<h2>Explore Job Categories</h2>
-<div class="categories">
-<div class="card"><h3>💻 IT & Technology</h3><p>Explore technology careers.</p></div>
-<div class="card"><h3>🏥 Healthcare</h3><p>Medical and healthcare opportunities.</p></div>
-<div class="card"><h3>📚 Education</h3><p>Teaching and education jobs.</p></div>
-<div class="card"><h3>🏢 Administration</h3><p>Office and management careers.</p></div>
-<div class="card"><h3>📞 Customer Service</h3><p>Support and call center jobs.</p></div>
-<div class="card"><h3>🌍 Remote Jobs</h3><p>Work from anywhere opportunities.</p></div>
-</div>
+ <div class="section-head">
+  <div class="kicker">Explore your path</div>
+  <h2>Find the right career direction</h2>
+  <p>Explore different professional fields and discover opportunities that match your interests.</p>
+ </div>
+ <div class="categories">
+  <div class="category"><div class="emoji">💻</div><h3>IT & Technology</h3><p>Software, IT support and digital careers.</p></div>
+  <div class="category"><div class="emoji">🏥</div><h3>Healthcare</h3><p>Medical, laboratory and healthcare roles.</p></div>
+  <div class="category"><div class="emoji">📚</div><h3>Education</h3><p>Teaching and academic opportunities.</p></div>
+  <div class="category"><div class="emoji">🏢</div><h3>Administration</h3><p>Office, HR and management roles.</p></div>
+  <div class="category"><div class="emoji">🎧</div><h3>Customer Service</h3><p>Support, sales and contact centre careers.</p></div>
+  <div class="category"><div class="emoji">🌍</div><h3>Remote Careers</h3><p>Explore opportunities to work remotely.</p></div>
+ </div>
 </section>
 
-<section id="jobs">
-<h2>Latest Job Opportunities</h2>
-<p style="margin-bottom:18px;color:#64748b">Explore opportunities and follow the original employer's application instructions.</p>
-<div class="jobs" id="jobList">
-<div class="card job"><div><span class="tag">Sample listing</span><h3>Customer Support Officer</h3><p>Private Sector · Pakistan</p></div><button onclick="alert('This is a sample listing. Verified application details will be added soon.')">View Details</button></div>
-<div class="card job"><div><span class="tag">Sample listing</span><h3>Junior Data Entry Operator</h3><p>Office Administration · Pakistan</p></div><button onclick="alert('This is a sample listing. Verified application details will be added soon.')">View Details</button></div>
-<div class="card job"><div><span class="tag">Sample listing</span><h3>Medical Laboratory Assistant</h3><p>Healthcare · Pakistan</p></div><button onclick="alert('This is a sample listing. Verified application details will be added soon.')">View Details</button></div>
-</div>
+<section class="jobs-section" id="jobs">
+ <div class="section-head">
+  <div class="kicker">Career opportunities</div>
+  <h2>Explore official job portals</h2>
+  <p>Use these portals to find current advertisements. JobFinder Pakistan links to the original sources and does not claim that every portal has an open vacancy today.</p>
+ </div>
+ <div class="filters">
+  <input id="portalSearch" type="search" placeholder="Search a portal or department..." aria-label="Search portals">
+  <select id="regionFilter" aria-label="Filter by region">
+   <option value="">All regions</option>
+   <option value="federal">Federal / All Pakistan</option>
+   <option value="punjab">Punjab</option>
+   <option value="kpk">Khyber Pakhtunkhwa</option>
+   <option value="sindh">Sindh</option>
+   <option value="balochistan">Balochistan</option>
+  </select>
+  <select id="typeFilter" aria-label="Filter by portal type">
+   <option value="">All portal types</option>
+   <option value="government">Government jobs</option>
+   <option value="commission">Public service commission</option>
+   <option value="testing">Testing services</option>
+   <option value="private">Private job platforms</option>
+  </select>
+  <button class="btn" onclick="searchJobs()">Search</button>
+ </div>
+
+ <div class="jobs" id="jobList">
+  <article class="job-card" data-region="federal" data-type="government">
+   <div class="job-info"><span class="tag">FEDERAL PORTAL</span><h3>National Jobs Portal</h3><p>Federal government departments · Pakistan</p></div>
+   <a class="apply" href="https://www.njp.gov.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="punjab" data-type="government">
+   <div class="job-info"><span class="tag">PUNJAB PORTAL</span><h3>Punjab Job Portal</h3><p>Punjab government departments</p></div>
+   <a class="apply" href="https://jobs.punjab.gov.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="federal" data-type="commission">
+   <div class="job-info"><span class="tag">FEDERAL COMMISSION</span><h3>Federal Public Service Commission</h3><p>Federal recruitment and competitive examinations</p></div>
+   <a class="apply" href="https://www.fpsc.gov.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="punjab" data-type="commission">
+   <div class="job-info"><span class="tag">PUNJAB COMMISSION</span><h3>Punjab Public Service Commission</h3><p>Punjab government recruitment</p></div>
+   <a class="apply" href="https://www.ppsc.gop.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="kpk" data-type="commission">
+   <div class="job-info"><span class="tag">KPK COMMISSION</span><h3>KP Public Service Commission</h3><p>Khyber Pakhtunkhwa recruitment</p></div>
+   <a class="apply" href="https://www.kppsc.gov.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="sindh" data-type="commission">
+   <div class="job-info"><span class="tag">SINDH COMMISSION</span><h3>Sindh Public Service Commission</h3><p>Sindh government recruitment</p></div>
+   <a class="apply" href="https://www.spsc.gov.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="balochistan" data-type="commission">
+   <div class="job-info"><span class="tag">BALOCHISTAN COMMISSION</span><h3>Balochistan Public Service Commission</h3><p>Balochistan government recruitment</p></div>
+   <a class="apply" href="https://www.bpsc.gob.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="federal" data-type="testing">
+   <div class="job-info"><span class="tag">TESTING SERVICE</span><h3>National Testing Service</h3><p>Recruitment tests and participating organisations</p></div>
+   <a class="apply" href="https://www.nts.org.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="kpk" data-type="testing">
+   <div class="job-info"><span class="tag">KPK TESTING SERVICE</span><h3>ETEA</h3><p>Recruitment and testing announcements in KPK</p></div>
+   <a class="apply" href="https://etea.edu.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="federal" data-type="private">
+   <div class="job-info"><span class="tag">PRIVATE JOB PLATFORM</span><h3>Rozee.pk</h3><p>Private-sector jobs and career opportunities</p></div>
+   <a class="apply" href="https://www.rozee.pk/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="federal" data-type="private">
+   <div class="job-info"><span class="tag">PRIVATE JOB PLATFORM</span><h3>Mustakbil</h3><p>Explore jobs across different industries</p></div>
+   <a class="apply" href="https://www.mustakbil.com/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+  <article class="job-card" data-region="federal" data-type="private">
+   <div class="job-info"><span class="tag">PROFESSIONAL NETWORK</span><h3>LinkedIn Jobs</h3><p>Professional opportunities and company listings</p></div>
+   <a class="apply" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener noreferrer">Browse Jobs ↗</a>
+  </article>
+ </div>
+ <div class="empty" id="noJobs">No matching portals found. Try changing your search or filters.</div>
+ <div class="notice">Safety reminder: Always read the original job advertisement, verify the employer and deadline, and never pay an individual for a job offer or share your passwords or verification codes.</div>
 </section>
 
-<section id="cv">
+<section class="cv-section" id="cv">
+ <div class="section-head">
+  <div class="kicker">Career toolkit</div>
+  <h2>Create your professional CV</h2>
+  <p>Fill in your details and see your CV update instantly. Print it or save it as a PDF from your browser.</p>
+ </div>
+ <div class="cv-layout">
+  <div class="cv-form">
+   <h3>Your information</h3>
+   <label for="cvName">Full name</label>
+   <input id="cvName" placeholder="Your full name" oninput="updateCV()">
+   <label for="cvEmail">Email address</label>
+   <input id="cvEmail" type="email" placeholder="your@email.com" oninput="updateCV()">
+   <label for="cvPhone">Phone number</label>
+   <input id="cvPhone" placeholder="+92..." oninput="updateCV()">
+   <label for="cvCity">City</label>
+   <input id="cvCity" placeholder="Your city" oninput="updateCV()">
+   <label for="cvSummary">Professional summary</label>
+   <textarea id="cvSummary" placeholder="A short introduction about your professional background..." oninput="updateCV()"></textarea>
+   <label for="cvEducation">Education</label>
+   <textarea id="cvEducation" placeholder="Degree, institution and year..." oninput="updateCV()"></textarea>
+   <label for="cvExperience">Work experience</label>
+   <textarea id="cvExperience" placeholder="Job title, company and responsibilities..." oninput="updateCV()"></textarea>
+   <label for="cvSkills">Skills</label>
+   <textarea id="cvSkills" placeholder="Your key skills..." oninput="updateCV()"></textarea>
+   <label for="cvLanguages">Languages</label>
+   <input id="cvLanguages" placeholder="English, Urdu..." oninput="updateCV()">
+   <div class="cv-actions">
+    <button class="btn" type="button" onclick="window.print()">Print / Save PDF</button>
+    <button class="btn secondary" type="button" onclick="clearCV()">Clear Form</button>
+   </div>
+   <p style="font-size:11px;color:#64748b;margin-top:12px">Your CV details stay in this browser page and are not uploaded to our website.</p>
+  </div>
 
-<section id="cv">
-<style>
-.cv-builder{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
-.cv-form,.cv-preview{background:white;padding:22px;border:1px solid #e2e8f0;border-radius:12px}
-.cv-form label{display:block;font-weight:bold;margin:12px 0 5px}
-.cv-form input,.cv-form textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:7px;font:inherit}
-.cv-form textarea{min-height:75px;resize:vertical}
-.cv-preview h2{color:#102b50;margin-bottom:5px}
-.cv-preview h3{color:#08775e;border-bottom:1px solid #ddd;margin:18px 0 7px}
-.cv-preview p{white-space:pre-wrap;overflow-wrap:anywhere}
-.cv-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
-@media(max-width:700px){.cv-builder{grid-template-columns:1fr}}
-@media print{
-body *{visibility:hidden}
-#cvPreview,#cvPreview *{visibility:visible}
-#cvPreview{position:absolute;left:0;top:0;width:100%;border:0;box-shadow:none}
-}
-</style>
-
-<h2>Free Professional CV Builder</h2>
-<p style="margin-bottom:18px;color:#64748b">Enter your details and create your professional CV instantly.</p>
-
-<div class="cv-builder">
-<div class="cv-form">
-<h3>Your Information</h3>
-
-<label>Full Name</label>
-<input id="cvName" placeholder="Enter your full name" oninput="updateCV()">
-
-<label>Email Address</label>
-<input id="cvEmail" type="email" placeholder="your@email.com" oninput="updateCV()">
-
-<label>Phone Number</label>
-<input id="cvPhone" placeholder="+92..." oninput="updateCV()">
-
-<label>City</label>
-<input id="cvCity" placeholder="Your city" oninput="updateCV()">
-
-<label>Professional Summary</label>
-<textarea id="cvSummary" placeholder="Write a short introduction..." oninput="updateCV()"></textarea>
-
-<label>Education</label>
-<textarea id="cvEducation" placeholder="Degree, institution, year..." oninput="updateCV()"></textarea>
-
-<label>Work Experience</label>
-<textarea id="cvExperience" placeholder="Job title, company, responsibilities..." oninput="updateCV()"></textarea>
-
-<label>Skills</label>
-<textarea id="cvSkills" placeholder="Communication, MS Office, teamwork..." oninput="updateCV()"></textarea>
-
-<label>Languages</label>
-<input id="cvLanguages" placeholder="English, Urdu..." oninput="updateCV()">
-
-<div class="cv-actions">
-<button type="button" onclick="window.print()">Download / Save as PDF</button>
-<button type="button" onclick="clearCV()">Clear Form</button>
-</div>
-<p style="font-size:12px;color:#64748b;margin-top:10px">Your information stays in this browser page. It is not uploaded to a server.</p>
-</div>
-
-<div class="cv-preview" id="cvPreview">
-<h2 id="outName">Your Name</h2>
-<p id="outContact">Email | Phone | City</p>
-
-<h3>Professional Summary</h3>
-<p id="outSummary">Your professional summary will appear here.</p>
-
-<h3>Education</h3>
-<p id="outEducation">Your education details will appear here.</p>
-
-<h3>Work Experience</h3>
-<p id="outExperience">Your experience will appear here.</p>
-
-<h3>Skills</h3>
-<p id="outSkills">Your skills will appear here.</p>
-
-<h3>Languages</h3>
-<p id="outLanguages">Your languages will appear here.</p>
-</div>
-</div>
-
-<script>
-function updateCV(){
-const get = id => document.getElementById(id).value.trim();
-const show = (id,value,fallback) => {
-document.getElementById(id).textContent = value || fallback;
-};
-show('outName',get('cvName'),'Your Name');
-const contact = [get('cvEmail'),get('cvPhone'),get('cvCity')].filter(Boolean).join(' | ');
-show('outContact',contact,'Email | Phone | City');
-show('outSummary',get('cvSummary'),'Your professional summary will appear here.');
-show('outEducation',get('cvEducation'),'Your education details will appear here.');
-show('outExperience',get('cvExperience'),'Your experience will appear here.');
-show('outSkills',get('cvSkills'),'Your skills will appear here.');
-show('outLanguages',get('cvLanguages'),'Your languages will appear here.');
-}
-function clearCV(){
-document.querySelectorAll('#cv input,#cv textarea').forEach(field=>field.value='');
-updateCV();
-}
-</script>
+  <div class="cv-preview" id="cvPreview">
+   <h2 id="outName">Your Name</h2>
+   <p id="outContact">Email | Phone | City</p>
+   <h3>Professional Summary</h3>
+   <p id="outSummary">Your professional summary will appear here.</p>
+   <h3>Education</h3>
+   <p id="outEducation">Your education details will appear here.</p>
+   <h3>Work Experience</h3>
+   <p id="outExperience">Your experience will appear here.</p>
+   <h3>Skills</h3>
+   <p id="outSkills">Your skills will appear here.</p>
+   <h3>Languages</h3>
+   <p id="outLanguages">Your languages will appear here.</p>
+  </div>
+ </div>
 </section>
-  
 
 <section id="about">
-<h2>About JobFinder Pakistan</h2>
-<div class="card">
-<p>JobFinder Pakistan aims to make career opportunities easier to discover for job seekers throughout Pakistan. Our goal is to connect people with useful career resources and reliable job information.</p>
-<br>
-<p><strong>Founder:</strong> Wasif Mahmood</p>
-<p><strong>Contact:</strong> <a href="mailto:wm899603@gmail.com">wm899603@gmail.com</a></p>
-</div>
+ <div class="section-head">
+  <div class="kicker">Our mission</div>
+  <h2>Making career discovery easier</h2>
+ </div>
+ <div class="about-card">
+  <h2>JobFinder Pakistan</h2>
+  <p>Our goal is to help job seekers discover useful career resources, access original recruitment websites and prepare professional CVs. We aim to make the job search journey simpler and more accessible across Pakistan.</p>
+  <br>
+  <p><strong>Founder:</strong> Wasif Mahmood</p>
+  <p><strong>Contact:</strong> <a href="mailto:wm899603@gmail.com" style="color:#5ee6b5">wm899603@gmail.com</a></p>
+ </div>
 </section>
+</main>
 
 <footer>
-<h3>JobFinder Pakistan</h3>
-<p>Find Your Future. Build Your Career.</p>
-<p>Contact: wm899603@gmail.com</p>
-<p class="small">© 2026 JobFinder Pakistan. All rights reserved.</p>
+ <div class="logo">JobFinder <span>Pakistan.</span></div>
+ <p>Discover Opportunities. Build Your Future.</p>
+ <p style="margin-top:12px">Contact: <a href="mailto:wm899603@gmail.com">wm899603@gmail.com</a></p>
+ <p style="margin-top:16px">© 2026 JobFinder Pakistan. All rights reserved.</p>
 </footer>
 
 <script>
 function searchJobs(){
-const query=document.getElementById('searchInput').value.toLowerCase().trim();
-const cards=document.querySelectorAll('#jobList .card');
-let found=0;
-cards.forEach(card=>{
-const match=card.innerText.toLowerCase().includes(query);
-card.style.display=match?'flex':'none';
-if(match)found++;
-});
-if(found===0)alert('No matching jobs found.');
-document.getElementById('jobs').scrollIntoView({behavior:'smooth'});
-}
-</script>
-</body>
-</html>
+ const query=document.getElementById('portalSearch').value.toLowerCase().trim();
+ const region=document.getElementById('regionFilter').value;
+ const type=document.getElementById('typeFilter').value;
+ const cards=document.querySelectorAll('#jobList .job-card');
+ let found=0;
+ cards.forEach(card=>{
+  const textMatch=card.innerText.toLowerCase().includes(query);
+  const regionMatch=!region||card.dataset.region===region;
+  const typeMatch=!type||card.dataset.type===type;
+  const match=textMatch&&regionMatch&
