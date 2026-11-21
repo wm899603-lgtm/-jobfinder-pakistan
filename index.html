@@ -1,1 +1,124 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Find the latest jobs in Pakistan. Build your CV and prepare for interviews with JobFinder Pakistan.">
+<title>JobFinder Pakistan | Find Your Future</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;color:#172033;background:#f6f8fc;line-height:1.6}
+header{background:#102b50;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:#42d6a4}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
+.hero{text-align:center;padding:75px 18px;background:linear-gradient(120deg,#102b50,#176b72);color:white}
+.hero h1{font-size:clamp(30px,5vw,48px);margin-bottom:12px}
+.hero p{margin-bottom:25px;color:#e0f4f0}
+.search{background:white;max-width:650px;margin:auto;padding:8px;border-radius:12px;display:flex;gap:8px}
+.search input{flex:1;min-width:0;padding:14px;border:0;outline:none;font-size:15px}
+button{background:#0b9c78;color:white;border:0;padding:13px 22px;border-radius:8px;cursor:pointer;font-weight:bold}
+button:hover{background:#08775e}
+section{padding:48px 6%}
+h2{font-size:27px;margin-bottom:20px}
+.categories,.jobs,.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:white;padding:21px;border-radius:12px;border:1px solid #e6eaf0;box-shadow:0 3px 12px #102b5008}
+.card h3{margin-bottom:8px}
+.card p{color:#64748b;font-size:14px}
+.job{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.job button{font-size:12px;padding:10px 14px}
+.tag{color:#08775e;background:#e3f7ef;padding:4px 9px;border-radius:20px;font-size:12px}
+.cta{text-align:center;background:#e9f5f2;border-radius:15px;padding:35px}
+footer{background:#102b50;color:white;padding:35px 6%;text-align:center}
+footer a{color:#42d6a4;text-decoration:none}
+.small{font-size:13px;color:#cbd5e1;margin-top:10px}
+@media(max-width:600px){header{justify-content:center}nav{text-align:center}.hero{padding:55px 15px}.search{flex-direction:column}section{padding:35px 5%}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">JobFinder <span>Pakistan</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#jobs">Jobs</a>
+<a href="#categories">Categories</a>
+<a href="#cv">CV Builder</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<h1>Find Your Future. Build Your Career.</h1>
+<p>Discover career opportunities across Pakistan.</p>
+<div class="search">
+<input id="searchInput" type="search" placeholder="Search job title or company...">
+<button onclick="searchJobs()">Search Jobs</button>
+</div>
+</div>
+
+<section id="categories">
+<h2>Explore Job Categories</h2>
+<div class="categories">
+<div class="card"><h3>💻 IT & Technology</h3><p>Explore technology careers.</p></div>
+<div class="card"><h3>🏥 Healthcare</h3><p>Medical and healthcare opportunities.</p></div>
+<div class="card"><h3>📚 Education</h3><p>Teaching and education jobs.</p></div>
+<div class="card"><h3>🏢 Administration</h3><p>Office and management careers.</p></div>
+<div class="card"><h3>📞 Customer Service</h3><p>Support and call center jobs.</p></div>
+<div class="card"><h3>🌍 Remote Jobs</h3><p>Work from anywhere opportunities.</p></div>
+</div>
+</section>
+
+<section id="jobs">
+<h2>Latest Job Opportunities</h2>
+<p style="margin-bottom:18px;color:#64748b">Explore opportunities and follow the original employer's application instructions.</p>
+<div class="jobs" id="jobList">
+<div class="card job"><div><span class="tag">Sample listing</span><h3>Customer Support Officer</h3><p>Private Sector · Pakistan</p></div><button onclick="alert('This is a sample listing. Verified application details will be added soon.')">View Details</button></div>
+<div class="card job"><div><span class="tag">Sample listing</span><h3>Junior Data Entry Operator</h3><p>Office Administration · Pakistan</p></div><button onclick="alert('This is a sample listing. Verified application details will be added soon.')">View Details</button></div>
+<div class="card job"><div><span class="tag">Sample listing</span><h3>Medical Laboratory Assistant</h3><p>Healthcare · Pakistan</p></div><button onclick="alert('This is a sample listing. Verified application details will be added soon.')">View Details</button></div>
+</div>
+</section>
+
+<section id="cv">
+<div class="cta">
+<h2>Build Your Professional CV</h2>
+<p>Create a strong first impression with a professional resume.</p>
+<button onclick="alert('CV Builder is coming soon!')">Explore CV Builder</button>
+</div>
+</section>
+
+<section id="about">
+<h2>About JobFinder Pakistan</h2>
+<div class="card">
+<p>JobFinder Pakistan aims to make career opportunities easier to discover for job seekers throughout Pakistan. Our goal is to connect people with useful career resources and reliable job information.</p>
+<br>
+<p><strong>Founder:</strong> Wasif Mahmood</p>
+<p><strong>Contact:</strong> <a href="mailto:wm899603@gmail.com">wm899603@gmail.com</a></p>
+</div>
+</section>
+
+<footer>
+<h3>JobFinder Pakistan</h3>
+<p>Find Your Future. Build Your Career.</p>
+<p>Contact: wm899603@gmail.com</p>
+<p class="small">© 2026 JobFinder Pakistan. All rights reserved.</p>
+</footer>
+
+<script>
+function searchJobs(){
+const query=document.getElementById('searchInput').value.toLowerCase().trim();
+const cards=document.querySelectorAll('#jobList .card');
+let found=0;
+cards.forEach(card=>{
+const match=card.innerText.toLowerCase().includes(query);
+card.style.display=match?'flex':'none';
+if(match)found++;
+});
+if(found===0)alert('No matching jobs found.');
+document.getElementById('jobs').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
