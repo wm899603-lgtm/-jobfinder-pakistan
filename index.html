@@ -82,12 +82,110 @@ footer a{color:#42d6a4;text-decoration:none}
 </section>
 
 <section id="cv">
-<div class="cta">
-<h2>Build Your Professional CV</h2>
-<p>Create a strong first impression with a professional resume.</p>
-<button onclick="alert('CV Builder is coming soon!')">Explore CV Builder</button>
+
+<section id="cv">
+<style>
+.cv-builder{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.cv-form,.cv-preview{background:white;padding:22px;border:1px solid #e2e8f0;border-radius:12px}
+.cv-form label{display:block;font-weight:bold;margin:12px 0 5px}
+.cv-form input,.cv-form textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:7px;font:inherit}
+.cv-form textarea{min-height:75px;resize:vertical}
+.cv-preview h2{color:#102b50;margin-bottom:5px}
+.cv-preview h3{color:#08775e;border-bottom:1px solid #ddd;margin:18px 0 7px}
+.cv-preview p{white-space:pre-wrap;overflow-wrap:anywhere}
+.cv-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+@media(max-width:700px){.cv-builder{grid-template-columns:1fr}}
+@media print{
+body *{visibility:hidden}
+#cvPreview,#cvPreview *{visibility:visible}
+#cvPreview{position:absolute;left:0;top:0;width:100%;border:0;box-shadow:none}
+}
+</style>
+
+<h2>Free Professional CV Builder</h2>
+<p style="margin-bottom:18px;color:#64748b">Enter your details and create your professional CV instantly.</p>
+
+<div class="cv-builder">
+<div class="cv-form">
+<h3>Your Information</h3>
+
+<label>Full Name</label>
+<input id="cvName" placeholder="Enter your full name" oninput="updateCV()">
+
+<label>Email Address</label>
+<input id="cvEmail" type="email" placeholder="your@email.com" oninput="updateCV()">
+
+<label>Phone Number</label>
+<input id="cvPhone" placeholder="+92..." oninput="updateCV()">
+
+<label>City</label>
+<input id="cvCity" placeholder="Your city" oninput="updateCV()">
+
+<label>Professional Summary</label>
+<textarea id="cvSummary" placeholder="Write a short introduction..." oninput="updateCV()"></textarea>
+
+<label>Education</label>
+<textarea id="cvEducation" placeholder="Degree, institution, year..." oninput="updateCV()"></textarea>
+
+<label>Work Experience</label>
+<textarea id="cvExperience" placeholder="Job title, company, responsibilities..." oninput="updateCV()"></textarea>
+
+<label>Skills</label>
+<textarea id="cvSkills" placeholder="Communication, MS Office, teamwork..." oninput="updateCV()"></textarea>
+
+<label>Languages</label>
+<input id="cvLanguages" placeholder="English, Urdu..." oninput="updateCV()">
+
+<div class="cv-actions">
+<button type="button" onclick="window.print()">Download / Save as PDF</button>
+<button type="button" onclick="clearCV()">Clear Form</button>
 </div>
+<p style="font-size:12px;color:#64748b;margin-top:10px">Your information stays in this browser page. It is not uploaded to a server.</p>
+</div>
+
+<div class="cv-preview" id="cvPreview">
+<h2 id="outName">Your Name</h2>
+<p id="outContact">Email | Phone | City</p>
+
+<h3>Professional Summary</h3>
+<p id="outSummary">Your professional summary will appear here.</p>
+
+<h3>Education</h3>
+<p id="outEducation">Your education details will appear here.</p>
+
+<h3>Work Experience</h3>
+<p id="outExperience">Your experience will appear here.</p>
+
+<h3>Skills</h3>
+<p id="outSkills">Your skills will appear here.</p>
+
+<h3>Languages</h3>
+<p id="outLanguages">Your languages will appear here.</p>
+</div>
+</div>
+
+<script>
+function updateCV(){
+const get = id => document.getElementById(id).value.trim();
+const show = (id,value,fallback) => {
+document.getElementById(id).textContent = value || fallback;
+};
+show('outName',get('cvName'),'Your Name');
+const contact = [get('cvEmail'),get('cvPhone'),get('cvCity')].filter(Boolean).join(' | ');
+show('outContact',contact,'Email | Phone | City');
+show('outSummary',get('cvSummary'),'Your professional summary will appear here.');
+show('outEducation',get('cvEducation'),'Your education details will appear here.');
+show('outExperience',get('cvExperience'),'Your experience will appear here.');
+show('outSkills',get('cvSkills'),'Your skills will appear here.');
+show('outLanguages',get('cvLanguages'),'Your languages will appear here.');
+}
+function clearCV(){
+document.querySelectorAll('#cv input,#cv textarea').forEach(field=>field.value='');
+updateCV();
+}
+</script>
 </section>
+  
 
 <section id="about">
 <h2>About JobFinder Pakistan</h2>
