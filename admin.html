@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JobFinder Pakistan | Admin Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#172033}
+header{background:#102b50;color:white;padding:22px}
+header h1{margin:0;font-size:23px}
+header p{margin:7px 0 0;color:#d5e4f7}
+main{max-width:1100px;margin:25px auto;padding:0 15px}
+.card{background:white;border-radius:13px;padding:22px;margin-bottom:18px;box-shadow:0 3px 15px #102b5010}
+input,button{font-size:15px;padding:12px;border-radius:8px}
+input{border:1px solid #ccd5e2;width:100%;margin:8px 0}
+button{border:0;background:#1764d8;color:white;font-weight:bold;cursor:pointer}
+button:hover{background:#104da9}
+.hidden{display:none}
+.stats{display:flex;gap:15px;flex-wrap:wrap}
+.stat{flex:1;min-width:150px;background:#edf4ff;padding:18px;border-radius:10px}
+.stat strong{display:block;font-size:28px;color:#1457b8;margin-top:7px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:850px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #e6ebf2;vertical-align:top}
+th{background:#f5f8fc}
+a{color:#1457b8;font-weight:bold}
+#message{margin-top:12px;color:#b42318}
+.small{color:#64748b;font-size:13px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header>
+<h1>JobFinder Pakistan</h1>
+<p>Administrator Dashboard</p>
+</header>
+
+<main>
+<section class="card" id="loginBox">
+<h2>Admin Login</h2>
+<p class="small">Enter your private admin password to view applications.</p>
+<input id="password" type="password" placeholder="Admin password" autocomplete="current-password">
+<button id="loginBtn" onclick="login()">Login to Dashboard</button>
+<p id="message"></p>
+</section>
+
+<section id="dashboard" class="hidden">
+<div class="topline">
+<h2>Applications Overview</h2>
+<button onclick="logout()">Logout</button>
+</div>
+
+<div class="stats">
+<div class="stat">Total Applications<strong id="total">0</strong></div>
+</div>
+
+<div class="card">
+<div class="topline">
+<h3>Candidate Applications</h3>
+<button onclick="loadApplications()">Refresh</button>
+</div>
+<input id="search" placeholder="Search by name, email, phone or city..." oninput="renderApplications()">
+<p id="status" class="small"></p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Contact</th>
+<th>City</th>
+<th>Education</th>
+<th>Experience</th>
+<th>CV</th>
+</tr>
+</thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+const API_URL = "https://mkviaydahwhyxfonrmmn.supabase.co/functions/v1/smart-api";
+const PUBLIC_KEY = "sb_publishable_0LogsnLNd3VcYomLIQXMFQ_jA75NH6t";
+
+let adminPassword = "";
+let applications = [];
+
+function safe(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[char]));
+}
+
+async function login() {
+  const passwordInput = document.getElementById("password");
+  const message = document.getElementById("message");
+  const btn = document.getElementById("loginBtn");
+  const entered = passwordInput.value;
+
+  if (!entered) {
+    message.textContent = "Please enter your password.";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Checking...";
+  message.textContent = "";
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": PUBLIC_KEY
+      },
+      body: JSON.stringify({
+        action: "admin_list",
+        password: entered
+      })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.error || "Login failed.");
+    }
+
+    adminPassword = entered;
+    applications = result.applications || [];
+    passwordInput.value = "";
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+    renderApplications();
+
+  } catch (error) {
+    message.textContent = error.message || "Unable to connect. Please try again.";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Login to Dashboard";
+  }
+}
+
+function renderApplications() {
+  const query = document.getElementById("search").value.toLowerCase().trim();
+  const filtered = applications.filter(app =>
+    [app.full_name, app.email, app.phone, app.city, app.education, app.experience]
+      .some(value => String(value || "").toLowerCase().includes(query))
+  );
+
+  document.getElementById("total").textContent = applications.length;
+  document.getElementById("status").textContent =
+    `Showing ${filtered.length} of ${applications.length} applications`;
+
+  const rows = document.getElementById("rows");
+
+  if (!filtered.length) {
+    rows.innerHTML = '<tr><td colspan="6">No applications found.</td></tr>';
+    return;
+  }
+
+  rows.innerHTML = filtered.map(app => {
+    const cv = typeof app.cv_url === "string" &&
+      /^https?:\/\//i.test(app.cv_url)
+      ? `<a href="${safe(app.cv_url)}" target="_blank" rel="noopener noreferrer">Open CV</a>`
+      : "Not uploaded";
+
+    return `<tr>
+      <td><strong>${safe(app.full_name)}</strong></td>
+      <td>${safe(app.email)}<br>${safe(app.phone)}</td>
+      <td>${safe(app.city)}</td>
+      <td>${safe(app.education)}</td>
+      <td>${safe(app.experience)}</td>
+      <td>${cv}</td>
+    </tr>`;
+  }).join("");
+}
+
+async function loadApplications() {
+  document.getElementById("status").textContent = "Refreshing applications...";
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": PUBLIC_KEY
+      },
+      body: JSON.stringify({
+        action: "admin_list",
+        password: adminPassword
+      })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.error || "Could not refresh applications.");
+    }
+
+    applications = result.applications || [];
+    renderApplications();
+  } catch (error) {
+    document.getElementById("status").textContent = error.message;
+  }
+}
+
+function logout() {
+  adminPassword = "";
+  applications = [];
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("loginBox").classList.remove("hidden");
+  document.getElementById("password").value = "";
+  document.getElementById("message").textContent = "";
+}
+</script>
+</body>
+</html>
