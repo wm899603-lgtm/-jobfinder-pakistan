@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080f25">
+<meta name="description" content="JobFinder Pakistan Privacy Policy - Learn how we collect, use and protect your information.">
+<title>Privacy Policy | JobFinder Pakistan</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080f25;
+  --panel: rgba(255,255,255,.065);
+  --border: rgba(255,255,255,.12);
+  --text: #eef3ff;
+  --muted: #a5b2ce;
+  --accent: #6c8cff;
+  --cyan: #42d8e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -150px;
+  background: #3158ff;
+  filter: blur(160px);
+  opacity: .24;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  right: -150px;
+  bottom: -150px;
+  background: #00bcd4;
+  filter: blur(160px);
+  opacity: .16;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(80px,60px) scale(1.2); }
+}
+
+nav {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+.back {
+  color: #dbe7ff;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 9px 17px;
+  border-radius: 30px;
+  transition: .3s;
+  font-size: 13px;
+}
+
+.back:hover {
+  background: rgba(108,140,255,.2);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 90px 20px 65px;
+  animation: appear .9s ease both;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--cyan);
+  border: 1px solid rgba(66,216,232,.3);
+  background: rgba(66,216,232,.08);
+  padding: 7px 17px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  line-height: 1.15;
+  background: linear-gradient(110deg,#fff,#9eb8ff,#55e2e9);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 570px;
+  margin: 20px auto 0;
+  font-size: 15px;
+}
+
+.updated {
+  display: inline-block;
+  margin-top: 22px;
+  color: #aab8d7;
+  font-size: 12px;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 0 22px 80px;
+  margin: auto;
+}
+
+.intro {
+  background: linear-gradient(120deg,rgba(108,140,255,.17),rgba(66,216,232,.07));
+  border: 1px solid rgba(108,140,255,.25);
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 24px;
+  color: #dce6ff;
+  animation: appear 1s ease both;
+}
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 17px;
+}
+
+.policy-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 25px;
+  backdrop-filter: blur(15px);
+  transition: transform .35s, border-color .35s, background .35s;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.policy-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.policy-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(108,140,255,.55);
+  background: rgba(255,255,255,.09);
+}
+
+.policy-card.full {
+  grid-column: 1 / -1;
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#536fff,#20c9d8);
+  color: white;
+  font-weight: 800;
+  margin-bottom: 16px;
+  font-size: 13px;
+  box-shadow: 0 5px 18px rgba(83,111,255,.25);
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.policy-card p,
+.policy-card li {
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.policy-card ul {
+  padding-left: 19px;
+  margin-top: 10px;
+}
+
+.policy-card li {
+  padding: 3px 0;
+}
+
+.policy-card a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.policy-card a:hover {
+  text-decoration: underline;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 25px;
+  padding: 35px 20px;
+  border-radius: 20px;
+  background: linear-gradient(130deg,rgba(83,111,255,.2),rgba(32,201,216,.12));
+  border: 1px solid var(--border);
+}
+
+.contact h2 {
+  font-size: 23px;
+}
+
+.contact p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 23px;
+  background: linear-gradient(110deg,#536fff,#20bfcf);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.email:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(83,111,255,.3);
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding: 27px 15px;
+  color: #8795b2;
+  font-size: 12px;
+}
+
+footer a {
+  color: var(--cyan);
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:700px) {
+  nav { padding: 18px 5%; }
+  .logo { font-size: 17px; }
+  .hero { padding: 65px 18px 45px; }
+  .hero h1 { letter-spacing: -1.5px; }
+  .policy-grid { grid-template-columns: 1fr; }
+  .policy-card.full { grid-column: auto; }
+  .policy-card { padding: 22px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="index.html">JobFinder<span>Pakistan</span></a>
+  <a class="back" href="index.html">← Back to Home</a>
+</nav>
+
+<section class="hero">
+  <div class="tag">YOUR PRIVACY MATTERS</div>
+  <h1>Privacy Policy</h1>
+  <p>
+    Transparency and trust matter to us. Learn how JobFinder Pakistan
+    collects, uses and handles your information.
+  </p>
+  <div class="updated">Last Updated: November 22, 2026</div>
+</section>
+
+<main class="container">
+
+  <div class="intro">
+    <strong>Welcome to JobFinder Pakistan.</strong>
+    <p>
+      This policy explains the information collected through our
+      website, why we collect it, and how you can contact us about
+      your personal information.
+    </p>
+  </div>
+
+  <div class="policy-grid">
+
+    <section class="policy-card">
+      <div class="number">01</div>
+      <h2>Information We Collect</h2>
+      <p>When you submit an application, we may collect:</p>
+      <ul>
+        <li>Full name and email address</li>
+        <li>Phone number and city</li>
+        <li>Education details</li>
+        <li>Work experience, if provided</li>
+        <li>Uploaded CV or resume</li>
+      </ul>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">02</div>
+      <h2>How We Use Your Data</h2>
+      <p>
+        Your information is used to receive, review and manage job
+        applications and support recruitment-related activities.
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">03</div>
+      <h2>Data Storage & Security</h2>
+      <p>
+        Application records and CV files are stored using Supabase
+        services. Access to application records is restricted through
+        our administrative system. CV links may be temporary.
+      </p>
+      <p>
+        No online system can guarantee absolute security.
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">04</div>
+      <h2>Sharing of Information</h2>
+      <p>
+        We do not intend to sell applicants' personal information.
+        Authorized administrators and relevant service providers may
+        access information when necessary to operate the website.
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">05</div>
+      <h2>Third-Party Websites</h2>
+      <p>
+        JobFinder Pakistan may link to external job portals and other
+        websites. These services operate independently and have
+        their own privacy policies.
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">06</div>
+      <h2>Cookies & Analytics</h2>
+      <p>
+        We may use Google Analytics to understand website traffic
+        and improve our services. Third-party analytics tools may
+        use cookies or similar technologies.
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">07</div>
+      <h2>Data Deletion Requests</h2>
+      <p>
+        You may contact us to request access to, correction of, or
+        deletion of your submitted application information.
+        We will review your request.
+      </p>
+    </section>
+
+    <section class="policy-card">
+      <div class="number">08</div>
+      <h2>Keep Your Information Safe</h2>
+      <p>
+        Please provide only the information requested by the form.
+        Never upload passwords, verification codes or unnecessary
+        sensitive personal information.
+      </p>
+    </section>
+
+    <section class="policy-card full">
+      <div class="number">09</div>
+      <h2>Policy Updates</h2>
+      <p>
+        We may update this policy when our website or data practices
+        change. The latest version will always be published on this page.
+      </p>
+    </section>
+
+  </div>
+
+  <section class="contact">
+    <h2>Have a Privacy Question?</h2>
+    <p>Our contact email is available for privacy-related questions and requests.</p>
+    <a class="email" href="mailto:wm899603@gmail.com">
+      Contact Us →
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 JobFinder Pakistan. All rights reserved.</p>
+  <p style="margin-top:9px">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.policy-card');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
