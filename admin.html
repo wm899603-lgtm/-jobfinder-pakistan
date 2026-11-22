@@ -124,8 +124,7 @@ async function login() {
     });
 
 const result = await response.json();
-message.textContent = "HTTP " + response.status + " | " + raw;
-return;
+
 
     if (!response.ok || !result.success) {
       throw new Error(result.error || "Login failed.");
