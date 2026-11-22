@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wm899603-lgtm.github.io/-jobfinder-pakistan/sitemap.xml
