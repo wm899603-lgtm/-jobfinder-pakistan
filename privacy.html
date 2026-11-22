@@ -22,45 +22,7 @@
   --cyan: #42d8e8;
   
 /* Compact spacing between policy sections */
-.policy-grid {
-  row-gap: 12px;
-}
 
-.policy-card {
-  padding: 20px 23px;
-}
-
-.policy-card.full {
-  padding: 18px 23px;
-}
-
-.contact {
-  margin-top: 16px;
-  padding: 25px 20px;
-}
-
-.contact h2 {
-  margin-bottom: 8px;
-}
-
-.contact p {
-  margin-bottom: 0;
-}
-
-@media (max-width: 700px) {
-  .policy-grid {
-    gap: 10px;
-  }
-
-  .policy-card {
-    padding: 18px;
-  }
-
-  .contact {
-    margin-top: 12px;
-    padding: 22px 16px;
-  }
-}
   
 }
 
@@ -369,7 +331,6 @@ footer a {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
-    /* Fix excessive blank space */
 .policy-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -408,44 +369,7 @@ footer a {
   }
 }
   }
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <a class="logo" href="index.html">JobFinder<span>Pakistan</span></a>
-  <a class="back" href="index.html">← Back to Home</a>
-</nav>
-
-<section class="hero">
-  <div class="tag">YOUR PRIVACY MATTERS</div>
-  <h1>Privacy Policy</h1>
-  <p>
-    Transparency and trust matter to us. Learn how JobFinder Pakistan
-    collects, uses and handles your information.
-  </p>
-  <div class="updated">Last Updated: November 22, 2026</div>
-</section>
-
-<main class="container">
-
-  <div class="intro">
-    <strong>Welcome to JobFinder Pakistan.</strong>
-    <p>
-      This policy explains the information collected through our
-      website, why we collect it, and how you can contact us about
-      your personal information.
-    </p>
-  </div>
-
-  <div class="policy-grid">
-
-    <section class="policy-card">
-      <div class="number">01</div>
-      <h2>Information We Collect</h2>
-      <p>When you submit an application, we may collect:</p>
+  
       <ul>
         <li>Full name and email address</li>
         <li>Phone number and city</li>
