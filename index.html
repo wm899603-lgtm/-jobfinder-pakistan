@@ -495,6 +495,26 @@ footer p{font-size:12px;color:#b7c7d8;margin-top:8px}
 @media(max-width:750px){.categories{grid-template-columns:repeat(2,1fr)}.cv-layout{grid-template-columns:1fr}.jobs{grid-template-columns:1fr}}
 @media(max-width:550px){header{justify-content:center}nav{justify-content:center;gap:12px}.hero{padding:65px 15px}.searchbox{flex-direction:column}.stats{padding:18px 8px}.stat strong{font-size:17px}.stat span{font-size:10px}section{padding:42px 5%}.categories{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.filters button{grid-column:auto}.job-card{align-items:flex-start;flex-direction:column}.apply{width:100%;text-align:center}}
 @media print{body *{visibility:hidden!important}#cvPreview,#cvPreview *{visibility:visible!important}#cvPreview{position:absolute;left:0;top:0;width:100%;border:0}}
+/* JobFinder smooth scroll animations */
+.jf-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--jf-delay, 0ms);
+}
+
+.jf-reveal.jf-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jf-reveal, .jf-reveal.jf-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 </style>
 </head>
 <body>
