@@ -474,23 +474,8 @@ footer a {
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy Policy</a>
   </p>
-</footer>
+<footer>
+  <p>© 2026 JobFinder Pakistan. All rights reserved.</p>
+
   <a href="privacy.html">Privacy Policy</a>
-
-<script>
-const cards = document.querySelectorAll('.policy-card');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-cards.forEach(card => observer.observe(card));
-</script>
-
-</body>
-</html>
+</footer>
